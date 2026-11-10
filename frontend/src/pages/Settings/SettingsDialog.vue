@@ -64,6 +64,11 @@
                 />
               </div>
             </section>
+            <AppSettingsPanels
+              v-if="settingsDialog.open"
+              :key="doc.frappeName"
+              :doc="doc"
+            />
           </div>
           <div v-else class="divide-y divide-outline-gray-1" aria-busy="true">
             <div
@@ -111,6 +116,7 @@ import QuickEditForm from 'src/pages/QuickEditForm.vue';
 import { settingsDialog } from 'src/utils/refs';
 import { computed, defineComponent } from 'vue';
 import SettingsField from './SettingsField.vue';
+import AppSettingsPanels from './AppSettingsPanels.vue';
 import { useSettings } from './useSettings';
 
 export default defineComponent({
@@ -127,6 +133,7 @@ export default defineComponent({
     Skeleton,
     QuickEditForm,
     SettingsField,
+    AppSettingsPanels,
   },
   provide() {
     return { doc: computed(() => this.doc) };

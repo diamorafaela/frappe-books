@@ -31,6 +31,9 @@
           "
         />
       </section>
+      <div class="px-4">
+        <AppSettingsPanels :key="doc.frappeName" :doc="doc" />
+      </div>
     </template>
     <div v-if="showInstallButton" class="p-4">
       <FrappeButton
@@ -73,6 +76,7 @@ import { canInstall, isInstallSheetOpen } from 'src/web/pwa';
 import { computed, defineComponent, nextTick } from 'vue';
 import CommonFormSection from '../CommonForm/CommonFormSection.vue';
 import { useSettings } from './useSettings';
+import AppSettingsPanels from './AppSettingsPanels.vue';
 
 /** Phones; desktop shows settings in SettingsDialog. */
 export default defineComponent({
@@ -82,6 +86,7 @@ export default defineComponent({
     FrappeTabButtons,
     MobileFooter,
     PageHeader,
+    AppSettingsPanels,
   },
   provide() {
     return { doc: computed(() => this.doc) };

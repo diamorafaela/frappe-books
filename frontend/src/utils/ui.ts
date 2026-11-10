@@ -13,6 +13,7 @@ import { ModelNameEnum } from 'models/types';
 import { Schema } from 'schemas/types';
 import { handleErrorWithDialog } from 'src/errorHandling';
 import { getCount, type Filter } from 'src/frappe/api';
+import { getAppActions } from 'src/frappe/actions';
 import { getModel } from 'src/frappe/registry';
 import { newFrappeDoc } from 'src/frappe/documents';
 import { fyo } from 'src/initFyo';
@@ -197,6 +198,7 @@ export function getActionsForDoc(doc?: FrappeDoc): Action[] {
 
   const actions: Action[] = [
     ...getActions(doc),
+    ...getAppActions(doc),
     getDuplicateAction(doc),
     getNewAction(doc),
     getDeleteAction(doc),

@@ -9,6 +9,8 @@ import {
   ValidationError,
 } from 'fyo/utils/errors';
 import type { BootUserPermissions } from 'fyo/utils/permissions';
+import type { DocumentAction } from 'src/frappe/actions';
+import type { SettingsPanelExtension } from 'src/pages/Settings/settingsPanelExtension';
 import { t } from 'fyo/utils/translation';
 import type { DeskTheme } from 'src/utils/theme';
 import type { ChartOfAccounts } from 'utils/types';
@@ -260,6 +262,8 @@ declare global {
           charts_of_accounts: ChartOfAccounts[];
           indian_states: Record<string, string>;
           print_style: string;
+          document_actions?: Record<string, DocumentAction[]>;
+          settings_panels?: SettingsPanelExtension[];
         };
         app_data?: { app_name: string; app_logo_url?: string | null }[];
         docs?: { doctype: string; name: string; symbol?: string | null }[];
